@@ -1,17 +1,7 @@
-[@bs.module "react-simple-maps"]
-external composableMap : ReasonReact.reactClass = "ComposableMap";
-[@bs.module "react-simple-maps"]
-external zoomableGroup : ReasonReact.reactClass = "ZoomableGroup";
-[@bs.module "react-simple-maps"]
-external geographies : ReasonReact.reactClass = "Geographies";
-[@bs.module "react-simple-maps"]
-external geographyComponent : ReasonReact.reactClass = "Geography";
-[@bs.module "react-simple-maps"]
-external markers : ReasonReact.reactClass = "Markers";
-[@bs.module "react-simple-maps"]
-external markerComponent : ReasonReact.reactClass = "Marker";
-[@bs.module "react-simple-maps"]
 module ComposableMap = {
+  [@bs.module "react-simple-maps"]
+  external composableMap : ReasonReact.reactClass = "ComposableMap";
+
   let make = children =>
     ReasonReact.wrapJsForReason(
       ~reactClass=composableMap,
@@ -21,6 +11,9 @@ module ComposableMap = {
 };
 
 module ZoomableGroup = {
+  [@bs.module "react-simple-maps"]
+  external zoomableGroup : ReasonReact.reactClass = "ZoomableGroup";
+
   let make = children =>
     ReasonReact.wrapJsForReason(
       ~reactClass=zoomableGroup,
@@ -30,6 +23,9 @@ module ZoomableGroup = {
 };
 
 module Geographies = {
+  [@bs.module "react-simple-maps"]
+  external geographies : ReasonReact.reactClass = "Geographies";
+
   [@bs.deriving abstract]
   type jsProps = {geography: string};
 
@@ -42,6 +38,9 @@ module Geographies = {
 };
 
 module Geography = {
+  [@bs.module "react-simple-maps"]
+  external geographyComponent : ReasonReact.reactClass = "Geography";
+
   [@bs.deriving abstract]
   type geography = {id: string};
   type projection;
@@ -65,6 +64,9 @@ module Geography = {
 };
 
 module Markers = {
+  [@bs.module "react-simple-maps"]
+  external markers : ReasonReact.reactClass = "Markers";
+
   let make = children =>
     ReasonReact.wrapJsForReason(~reactClass=markers, ~props=(), children);
 };
@@ -72,6 +74,9 @@ module Markers = {
 let invert = ((a, b)) => (b, a);
 
 module DataMarker = {
+  [@bs.module "react-simple-maps"]
+  external markerComponent : ReasonReact.reactClass = "Marker";
+
   [@bs.deriving abstract]
   type markerT = {coordinates: (float, float)};
 
