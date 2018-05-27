@@ -2,3 +2,5 @@ node_modules
 lib
 /.merlin
 /src/index.bs.js
+*.bs.js
+*.log
