@@ -3,7 +3,7 @@
   "scripts": {
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "start": "npx serve",
+    "start": "serve",
     "clean": "bsb -clean-world"
   },
   "dependencies": {
@@ -11,5 +11,8 @@
     "react": "^16.4.0",
     "react-simple-maps": "^0.12.1",
     "reason-react": "^0.4.1"
+  },
+  "devDependencies": {
+    "serve": "^6.5.8"
   }
 }
