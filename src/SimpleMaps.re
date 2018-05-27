@@ -1,4 +1,5 @@
 module ComposableMap = {
+  /* maybe a nicer syntax for this? */
   [@bs.module "react-simple-maps"]
   external composableMap : ReasonReact.reactClass = "ComposableMap";
 
@@ -77,6 +78,7 @@ module DataMarker = {
   [@bs.module "react-simple-maps"]
   external markerComponent : ReasonReact.reactClass = "Marker";
 
+  /* why do I need to call this markerT? */
   [@bs.deriving abstract]
   type markerT = {coordinates: (float, float)};
 

@@ -1,4 +1,5 @@
 open SimpleMaps;
+/* why do you need to do this? */
 open Belt;
 
 type state = {locations: array(Fetcher.data)};
@@ -6,25 +7,22 @@ type state = {locations: array(Fetcher.data)};
 type action =
   | LocationsReceived(array(Fetcher.data));
 
-let initialState = () => {locations: [||]};
-
-let reducer = (action, _state) =>
-  switch (action) {
-  | LocationsReceived(locations) =>
-    ReasonReact.Update({locations: locations})
-  };
-
-let component = ReasonReact.reducerComponent("DojoMap");
-
 let make = _children => {
-  ...component,
-  initialState,
-  reducer,
+  /* I just wanted setState */
+  ...ReasonReact.reducerComponent("DojoMap"),
   didMount: self =>
     Fetcher.fetchGet(
+      /* I expect one more indentation here */
       ~url="https://immense-river-25513.herokuapp.com/locations", ~cb=data =>
       self.send(LocationsReceived(data))
     ),
+  reducer: (action, _state) =>
+    switch (action) {
+    /* why is this not indented? */
+    | LocationsReceived(locations) =>
+      ReasonReact.Update({locations: locations})
+    },
+  initialState: () => {locations: [||]},
   render: self =>
     <div>
       <ComposableMap>
@@ -58,4 +56,5 @@ let make = _children => {
         </ZoomableGroup>
       </ComposableMap>
     </div>,
+  /* why does comment get moved */
 };
